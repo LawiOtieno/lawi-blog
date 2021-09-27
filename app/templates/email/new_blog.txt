@@ -1,0 +1,10 @@
+Hi!
+
+See new blog...
+
+Title: {{blog.title}}
+Post: {{blog.content|truncate(50)}}
+
+Regards,
+Blogs by Lawi
+https://streetgm.gumroad.com/
