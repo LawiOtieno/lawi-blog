@@ -31,6 +31,15 @@
                 out</a>
             </div>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.login')}}" style='margin-right:30px'><i
+                class="fas fa-sign-in-alt"></i>&nbsp; <strong>Log In</strong></a>
+          </li>
+          <li class="nav-item">
+            <a style='margin-right:30px' class="nav-link" href="{{url_for('auth.signup')}}"><i
+                class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
+          </li>
           {%endif%}
         </ul>
       </div>
