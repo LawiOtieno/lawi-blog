@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+
+    <!-- Profile -->
+    <h2 class="text-center bg-info text-light p-3">Profile & Update</h2>
+    <div class="d-flex justify-content-center">  
+      <div class="card" style="width: 50rem;">
+        <div class="card-img">
+          {% if user.profile_pic_path %}
+          <img  src="{{url_for('static',filename=user.profile_pic_path)}}" style="height:300px;border-radius: 1%" class="card-img" alt="woman avatar">
+            <br>
+          {%else%}
+          <div><i class='fas fa-user-alt' style='font-size:100px; color: #1d1c1d'></i></div>
+          <div>
+            <form action="{{url_for('main.profile',name=user.username)}}" method="post" enctype="multipart/form-data">
+              <input type="file" name="photo" class="form-control" required>
+              <input type="submit" class="btn btn-info" id="submit">
+            </form>
+          </div>
+
+          {% endif %}
+        </div>
+
+        <div class="card-body list-group-item">
+          <h5 class="card-title">Your Bio:</h5>
+        {% if user.bio %}
+          <p> 
+            "<strong>{{user.bio}}</strong>"
+          </p>
+          {%else%}
+          {% endif %}
+        </div>
+      </div>
+    </div>  
+      
+</div>
+{% endblock %}

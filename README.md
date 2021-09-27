@@ -58,6 +58,9 @@ $ ./start.sh
 ## Viewing Live
 Click this link to view:
 
+## Sample
+<img src="./samples/landing-sample-lawi-blog.png" alt="Landing Page" />
+
 
 ## Technologies Used
 * Python
