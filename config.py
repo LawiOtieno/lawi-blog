@@ -1,5 +1,7 @@
 import os
 from dotenv import load_dotenv
+
+
 load_dotenv()
 
 class Config:
@@ -30,7 +32,7 @@ class DevConfig(Config):
   DEBUG = True
 
 class TestConfig(Config):
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:nick101010@localhost/blog_test'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://access:lawioti@localhost/blogging_test'
 
 config_options = {
   'production':ProdConfig,
