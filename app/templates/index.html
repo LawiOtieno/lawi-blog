@@ -7,15 +7,13 @@
   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="../static/css/style.css" />
-  <!-- <link rel="stylesheet" href="../static/css/index.css" /> -->
-<!-- <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" /> -->
+<link rel="stylesheet" href="../static/css/style.css" />
 {% endblock %}
 
 {% block content %}
 <div class="container">
   <!-- Welcome Display -->
-  <div class="welcome">
+  <div class="myWelcome">
     <div class="text-center">
       <h2 class="">Welcome to <span class="text-danger">B</span>logs by <span class="text-danger">L</span>awi</h2>
       <br>
@@ -92,9 +90,10 @@
     <!-- End Recent Blogs Display -->   
   </div>
 </div>
+<br><br>
 
 
 <!-- Footer Here -->
-<!-- {% include 'footer.html' %} -->
+{% include 'footer.html' %}
 
 {% endblock %}
