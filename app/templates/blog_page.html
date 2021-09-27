@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+<div class="container ">
+  <h1 class="text-center"> Posted by {{blog.user.username}}</h1>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>{{blog.title | upper}}</h2>
+      <p>{{blog.description}}</p>
+      <p>{{blog.content}}</p>
+      <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by
+        {{blog.user.username}}</p>
+      <div>
+        <form  action="{{url_for('main.comment',blog_id = blog.id)}}" method="POST">
+          <div class="md-form form-group">
+            <!-- <i class="fa fa-lock prefix"></i> -->
+            <label for="form92">Type your comment</label><br>
+            <textarea id="comment" type="text" class="form-control" name="newcomment" required></textarea>
+          </div>
+          <div class="md-form form-group">
+            <button class="btn btn-success">Comment</button>
+          </div>
+        </form>
+        {% if blog.user == current_user %}
+        <a class="btn btn-info btn-sm m-1" href="{{url_for('main.updateblog',blog_id = blog.id)}}"><i
+            class="fas fa-edit" style='font-size:30px;'></i><br>Edit Blog</a>
+        <form id="deleteForm" action="{{url_for('main.delete_post',blog_id = blog.id)}}" method="POST">
+          <button class="btn btn-sm btn-danger m-1" type="submit"><i class="fas fa-trash"
+              style='font-size:30px;'></i><br>Delete Blog </button>
+        </form>
+        {% endif %}
+      </div>
+      <div class="comments">
+        <h3>Comments</h3>
+        {% for comment in comments %}
+        <p class="mt-10"><span style="font-weight: bold">{{comment.user.username}} : </span> {{comment.comment}}</p>
+        <a href="{{url_for('main.delete_comment', id = blog.id, comment_id = comment.id)}}"
+          class="btn text-white btn-danger"> <i class="far fa-trash-alt"></i><br>Delete
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{% endblock %}
