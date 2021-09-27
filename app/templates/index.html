@@ -7,19 +7,19 @@
   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- <link rel="stylesheet" href="../static/css/index.css" /> -->
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <!-- <link rel="stylesheet" href="../static/css/index.css" /> -->
 <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" /> -->
 {% endblock %}
 
 {% block content %}
 <div class="container">
   <!-- Welcome Display -->
-  <div class="welcome text-center">
-    <h2 class="">Welcome to <span class="text-danger">B</span>logs by <span class="text-danger">L</span>awi</h2>
-    <br>
-    <!-- <div class="text-center">
-      <a href="{{url_for('main.new_blog')}}"><button class="btn btn-primary">Create Blog</button></a>
-    </div> -->
+  <div class="welcome">
+    <div class="text-center">
+      <h2 class="">Welcome to <span class="text-danger">B</span>logs by <span class="text-danger">L</span>awi</h2>
+      <br>
+    </div>
   </div>
   <!-- End Welcome Display -->
 
@@ -59,7 +59,7 @@
       <!-- Subscription Display -->
       <div class="border border-success rounded p-2">
         <form id="subscribeForm" class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
-          <h1>Subscribe</h1>
+          <h1 class="text-center">Subscribe</h1>
           <div class="text-center">
             <div class="md-form form-group">
               <input type="email" class="form-control" placeholder="Your email here..." name="subscriber" required>
@@ -92,5 +92,9 @@
     <!-- End Recent Blogs Display -->   
   </div>
 </div>
+
+
+<!-- Footer Here -->
+<!-- {% include 'footer.html' %} -->
 
 {% endblock %}
