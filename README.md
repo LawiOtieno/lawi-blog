@@ -59,7 +59,7 @@ $ ./start.sh
 Click this link to view:
 
 ## Sample
-<img src="./samples/landing-sample-lawi-blog.png" alt="Landing Page" />
+<img src="./samples/lawiBlogLanding.png" alt="Landing Page" />
 
 
 ## Technologies Used
