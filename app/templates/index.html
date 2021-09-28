@@ -3,19 +3,19 @@
 <!-- Styles block -->
 {% block styles%}
 {{ super() }}
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="../static/css/style.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}" />
 {% endblock %}
 
 {% block content %}
 <div class="container">
-  <!-- Welcome Display -->
+  <!-- Welcome Display id="myWelcome" -->
   <div class="myWelcome">
     <div class="text-center">
-      <h2 class="">Welcome to <span class="text-danger">B</span>logs by <span class="text-danger">L</span>awi</h2>
+      <h2>Welcome to <span class="text-danger">B</span>logs by <span class="text-danger">L</span>awi</h2>
       <br>
     </div>
   </div>
@@ -72,25 +72,27 @@
     </div>
 
     <!-- Recent Blogs Display -->
-    <div class="col-4">
-      <div class="border border-success rounded p-3">
-        <h1 class="text-center"><u>Recent Blogs</u></h1>
-        {% for blog in blogs %}
-        <div class="border border-info rounded p-3">
-          <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title | upper}}</a></h4>
-          <h5>{{blog.description}}</h5>
-          <p>Posted on :<small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small> by <a
-            href="user/{{blog.user.username}}">{{blog.user.username}}</a></p>
-          <p> <a class="btn btn-success" href="{{url_for('main.blog',id = blog.id)}}">{{blog.comment.count()}} <i class="far fa-comments"  style='font-size:30px;'></i></a></p>
-        </div>
+    <div class="col-4 border border-success rounded p-2">
+      <h1 class="text-center"><u>Recent Blogs</u></h1>
+      {% for blog in blogs %}
+      <div class="border border-info rounded p-3 m-2">
+        <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title | upper}}</a></h4>
+        <h5>{{blog.description}}</h5>
+        <p>Posted by: <a href="user/{{blog.user.username}}">{{blog.user.username}}</a> 
+          on <small class="text-muted mr-2"> {{blog.time.strftime('%d-%m-%Y')}}</small>
+        </p>
+        <p> <a class="btn btn-success" href="{{url_for('main.blog',id = blog.id)}}">{{blog.comment.count()}} 
+          <i class="far fa-comments"  style='font-size:25px;'></i>
+          </a>
+        </p>
       </div>
   
       {% endfor %}
     </div> 
     <!-- End Recent Blogs Display -->   
   </div>
+  <br><br>
 </div>
-<br><br>
 
 
 <!-- Footer Here -->
